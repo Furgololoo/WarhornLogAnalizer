@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>main.qml</file>
+        <file>pages/LogExplorer.qml</file>
+        <file>pages/DescriptionWindow.qml</file>
+        <file>pages/ManageWindow.qml</file>
+        <file>custom_components/LogGroup.qml</file>
+        <file>custom_components/LogList.qml</file>
+        <file>custom_components/LogEntry.qml</file>
+        <file>custom_components/ScrollBar_C.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>scripts/Colors.js</file>
+        <file>scripts/Fonts.js</file>
+    </qresource>
+</RCC>
