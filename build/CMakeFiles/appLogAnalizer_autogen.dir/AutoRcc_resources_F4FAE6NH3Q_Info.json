@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "D:/Qt/LogAnalizer/build/appLogAnalizer_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Qt/LogAnalizer/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Qt/LogAnalizer/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Qt/LogAnalizer",
+	"CMAKE_SOURCE_DIR" : "D:/Qt/LogAnalizer",
+	"INCLUDE_DIR" : "D:/Qt/LogAnalizer/build/appLogAnalizer_autogen/include",
+	"INPUTS" : 
+	[
+		"D:/Qt/LogAnalizer/src/resources/photo1.JPG",
+		"D:/Qt/LogAnalizer/src/resources/icons/less.png",
+		"D:/Qt/LogAnalizer/src/resources/icons/more.png"
+	],
+	"LOCK_FILE" : "D:/Qt/LogAnalizer/build/CMakeFiles/appLogAnalizer_autogen.dir/AutoRcc_resources_F4FAE6NH3Q_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "F4FAE6NH3Q",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "H:/Qt/6.5.0/msvc2019_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "D:/Qt/LogAnalizer/build/CMakeFiles/appLogAnalizer_autogen.dir/AutoRcc_resources_F4FAE6NH3Q_Used.txt",
+	"SOURCE" : "D:/Qt/LogAnalizer/src/resources/resources.qrc",
+	"VERBOSITY" : 0
+}

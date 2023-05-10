@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/LogAnalizer">
+    <file alias="qmldir">D:/Qt/LogAnalizer/build/LogAnalizer/qmldir</file>
+  </qresource>
+</RCC>
+

@@ -1,0 +1,4 @@
+module LogAnalizer
+typeinfo appLogAnalizer.qmltypes
+prefer :/LogAnalizer/
+
