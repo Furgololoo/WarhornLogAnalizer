@@ -27,10 +27,6 @@ qt_add_executable(appLogAnalizer
     # File
     src/cpp_code/files/filemanager.h    src/cpp_code/files/filemanager.cpp
 
-    # Custom QML Elements
-    src/cpp_code/custom_qml_elements/scrollbar_c.h      src/cpp_code/custom_qml_elements/scrollbar_c.cpp
-    src/cpp_code/custom_qml_elements/list_c.h           src/cpp_code/custom_qml_elements/list_c.cpp
-
     # QRC
     src/view/qml.qrc
     src/resources/resources.qrc
