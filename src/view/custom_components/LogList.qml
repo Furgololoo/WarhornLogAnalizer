@@ -20,6 +20,18 @@ Item {
             width: parent.width * 0.08
             anchors.top: parent.top
             anchors.right: parent.right
+
+            onMoveToBegin: {
+                flickable.contentY = 0
+            }
+
+            onMoveToEnd: {
+                flickable.contentY = column.implicitHeight - flickable.height
+            }
+
+            onMoved: (value) => {
+                         flickable.contentY += value
+                     }
         }
     }
 
@@ -36,14 +48,23 @@ Item {
         interactive: true
         clip: true
 
+        onContentYChanged: scrollBar.moveSlider(flickable.contentY)
+
         Column {
             id: column
             anchors.fill : parent
             spacing: 4
 
+            onImplicitHeightChanged: {
+                console.log("column implicitHeight: " + column.implicitHeight)
+                console.log("        column height: " + flickable.height)
+                scrollBar.setHandleSize(column.implicitHeight / flickable.height)
+            }
+
             Repeater {
                 id: repeater
                 anchors.fill: parent
+
                 LogEntry {
                     mainText: modelData.title
                     rectColor: logColor
@@ -51,8 +72,8 @@ Item {
                     height: 25
                 }
             }
-
         }
     }
+
 
 }

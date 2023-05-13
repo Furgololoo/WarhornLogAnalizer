@@ -50,7 +50,6 @@ Item {
 
                 onMouseYChanged: {
                     let yVal =  mouseY - firstPoint
-                    console.log(handle.y)
 
                     if(handle.y + yVal <= 0) {
                         handle.y = 0
