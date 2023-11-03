@@ -8,6 +8,7 @@
         <file>custom_components/LogList.qml</file>
         <file>custom_components/LogEntry.qml</file>
         <file>custom_components/ScrollBar_C.qml</file>
+        <file>pages/DescriptionPage.qml</file>
     </qresource>
     <qresource prefix="/">
         <file>scripts/Colors.js</file>

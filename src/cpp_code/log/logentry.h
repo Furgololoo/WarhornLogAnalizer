@@ -6,24 +6,34 @@
 
 #include "logtype.h"
 
-class LogEntry {
+class LogEntry
+{
 public:
-  //  LogEntry(const LogEntry &) = default;
-  explicit LogEntry(QJsonObject &obj, LogType::ELogType _type);
+    LogEntry();
+    explicit LogEntry(QJsonObject &obj, LogType::ELogType _type);
+    LogEntry(const LogEntry &log) = delete;
+    LogEntry &operator=(const LogEntry &log) = delete;
 
-  void addData(QJsonObject &obj);
+    void addData(QJsonObject &obj);
 
-  QColor getColor() const;
-  QString getTitle() const;
-  LogType::ELogType getType() const;
+    QJsonObject getDescription() const;
+
+    QColor getColor() const;
+    QString getTitle() const;
+    QJsonObject getData() const;
+    LogType::ELogType getType() const;
+
+#ifdef DEBUG_LOGS
+    void showStatus() const;
+#endif
 
 private:
-  void setColor();
+    void setColor();
 
-  LogType::ELogType type;
-  QJsonObject data;
+    LogType::ELogType type;
+    QJsonObject data;
 
-  QColor color;
+    QColor color;
 };
 
 #endif // LOGENTRY_H

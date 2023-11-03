@@ -3,6 +3,8 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include "ui_managers/descriptionwindowmanager.h"
+
 ObjectManager::ObjectManager(QObject *parent) : QObject{parent} {
   fileManager = std::make_shared<FileManager>();
   logAnalizer = std::make_shared<LogAnalizer>();
@@ -18,4 +20,7 @@ void ObjectManager::setContextProperty(QQmlApplicationEngine &engine) {
   engine.rootContext()->setContextProperty("LogManager", logManager.get());
 }
 
-void ObjectManager::registerTypes() {}
+void ObjectManager::registerTypes() {
+  qmlRegisterType<DescriptionWindowManager>("Managers", 1, 0,
+                                            "DescriptionWindowManager");
+}

@@ -21,6 +21,10 @@ Item {
         handle.y = yVal / ratio
     }
 
+    function disableScrollBar() {
+        root.width = 0
+    }
+
     signal moved(value: real)
     signal moveToEnd()
     signal moveToBegin()

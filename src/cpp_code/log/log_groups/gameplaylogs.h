@@ -3,31 +3,37 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QSharedPointer>
 
 #include "../logentry.h"
 
-class GameplayLogs {
+class GameplayLogs
+{
 public:
-  GameplayLogs();
+    GameplayLogs();
+    GameplayLogs(const GameplayLogs *) = delete;
+    GameplayLogs &operator=(const GameplayLogs *) = delete;
 
-  void addFatalErrorLog(LogEntry &&log) noexcept;
-  void addErrorLog(LogEntry &&log) noexcept;
-  void addWarningLog(LogEntry &&log) noexcept;
-  void addInfoLog(LogEntry &&log) noexcept;
+    void addFatalErrorLog(std::unique_ptr<LogEntry> log);
+    void addErrorLog(std::unique_ptr<LogEntry> log);
+    void addWarningLog(std::unique_ptr<LogEntry> log);
+    void addInfoLog(std::unique_ptr<LogEntry> log);
 
-  void printStatus() const;
+    void printStatus() const;
 
-  QJsonArray getDescription() const;
-  QJsonArray getLogsTitle(const LogType::ELogType type) const;
+    QJsonArray getShortcut() const;
+    QJsonArray getLogsTitle(const LogType::ELogType type) const;
+    QJsonObject &getDescription(const QString &type, const int index) const;
 
 private:
-  QJsonArray
-  createLogsTitleArray(QMap<int, LogEntry> const *const logsMap) const;
+    QJsonArray createLogsTitleArray(std::shared_ptr<std::map<int, std::unique_ptr<LogEntry>>>) const;
 
-  QMap<int, LogEntry> fatalErrorLogs;
-  QMap<int, LogEntry> errorLogs;
-  QMap<int, LogEntry> warningLogs;
-  QMap<int, LogEntry> infoLogs;
+    std::shared_ptr<std::map<int, std::unique_ptr<LogEntry>>> getLogMapByType(const QString &type) const;
+
+    std::shared_ptr<std::map<int, std::unique_ptr<LogEntry>>> fatalErrorLogs;
+    std::shared_ptr<std::map<int, std::unique_ptr<LogEntry>>> errorLogs;
+    std::shared_ptr<std::map<int, std::unique_ptr<LogEntry>>> warningLogs;
+    std::shared_ptr<std::map<int, std::unique_ptr<LogEntry>>> infoLogs;
 };
 
 #endif // GAMEPLAYLOGS_H

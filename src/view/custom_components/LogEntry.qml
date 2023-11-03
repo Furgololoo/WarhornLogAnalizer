@@ -9,6 +9,8 @@ Item {
     property color rectColor: "white"
     property string mainText: "unnamed"
 
+    signal openDescriptionWindow()
+
     Rectangle {
         id: mainRect
         anchors.fill: parent
@@ -33,7 +35,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onPressed: {
-                // open description panel
+                openDescriptionWindow()
             }
         }
     }

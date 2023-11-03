@@ -2,6 +2,6 @@
     <qresource prefix="/">
         <file>icons/more.png</file>
         <file>icons/less.png</file>
-        <file>photo1.JPG</file>
+        <file>icons/close.png</file>
     </qresource>
 </RCC>

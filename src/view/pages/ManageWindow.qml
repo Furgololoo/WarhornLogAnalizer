@@ -22,8 +22,7 @@ Item {
     FileDialog {
         id: fileDialog
         title: "Choose Log File"
-        // currentFolder: StandardPaths.standardLocations(StandardPaths.DownloadLocation)[0]
-        currentFolder: StandardPaths.standardLocations(StandardPaths.DesktopLocation)[0]
+        currentFolder: StandardPaths.standardLocations(StandardPaths.DownloadLocation)[0]
         onAccepted: FileManager.openFile(selectedFile)
     }
 }

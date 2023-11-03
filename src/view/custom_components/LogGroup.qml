@@ -80,7 +80,7 @@ Item {
                         root.componentHeight = 125
 
                     root.height = componentHeight + initialHeight + 6
-                    console.log(root.height)
+                    //console.log(root.height)
 
                     listItem.children[0].setLogsArray(arr)
                 }
@@ -110,7 +110,9 @@ Item {
             width: listItem.width
             height: componentHeight
             logColor: rectColor
+            onOpenDescriptionWindow: function(index) {
+                LogManager.openDescription(root.type, index)
+            }
         }
     }
-
 }

@@ -4,13 +4,17 @@ import QtQuick.Controls
 import "qrc:/scripts/Colors.js" as Colors
 
 Item {
+    id: root
     property color logColor: "white"
 
     function setLogsArray(arr) {
         repeater.model = arr
     }
 
+    signal openDescriptionWindow(index: int)
+
     Rectangle {
+        id: scrollRect
         anchors.fill: parent
         color: Colors.DarkSegment
 
@@ -39,10 +43,10 @@ Item {
         id: flickable
         height: parent.height
         width: parent.width * 0.92
-        contentHeight: column.implicitHeight
-        contentWidth: parent.width * 0.9
         anchors.top: parent.top
         anchors.left: parent.left
+        contentHeight: column.implicitHeight
+        contentWidth: parent.width * 0.9
 
         boundsBehavior: Flickable.StopAtBounds
         interactive: true
@@ -56,9 +60,15 @@ Item {
             spacing: 4
 
             onImplicitHeightChanged: {
-                console.log("column implicitHeight: " + column.implicitHeight)
-                console.log("        column height: " + flickable.height)
-                scrollBar.setHandleSize(column.implicitHeight / flickable.height)
+                // console.log("column implicitHeight: " + column.implicitHeight)
+                // console.log("        column height: " + flickable.height)
+                if(column.implicitHeight === flickable.height) {
+                    scrollBar.disableScrollBar()
+                    flickable.width = root.width
+                    flickable.contentWidth = root.width
+                }
+                else
+                    scrollBar.setHandleSize(column.implicitHeight / flickable.height)
             }
 
             Repeater {
@@ -70,10 +80,10 @@ Item {
                     rectColor: logColor
                     width: parent.width
                     height: 25
+                    onOpenDescriptionWindow: root.openDescriptionWindow(index)
                 }
             }
         }
     }
-
 
 }
